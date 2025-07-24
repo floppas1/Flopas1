@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Website Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #4a6fa5;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .generator-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #3a5a80;
+        }
+        
+        .preview-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .preview-placeholder {
+            border: 2px dashed #ddd;
+            padding: 40px;
+            text-align: center;
+            color: #777;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Website Generator</h1>
+            <p>Create your perfect website in minutes with artificial intelligence</p>
+        </header>
+        
+        <section class="generator-form">
+            <h2>Website Details</h2>
+            <form id="websiteForm">
+                <div class="form-group">
+                    <label for="websiteType">What type of website do you need?</label>
+                    <select id="websiteType" required>
+                        <option value="">Select an option</option>
+                        <option value="business">Business Website</option>
+                        <option value="portfolio">Portfolio</option>
+                        <option value="blog">Blog</option>
+                        <option value="ecommerce">E-commerce Store</option>
+                        <option value="personal">Personal Website</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="companyName">Company/Personal Name</label>
+                    <input type="text" id="companyName" placeholder="Enter your company or personal name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="websitePurpose">Describe your website purpose</label>
+                    <textarea id="websitePurpose" placeholder="Tell us what your website should accomplish, your target audience, and any special features you need" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="colorScheme">Preferred color scheme</label>
+                    <select id="colorScheme">
+                        <option value="professional">Professional (Blues, Grays)</option>
+                        <option value="modern">Modern (Dark with accents)</option>
+                        <option value="bright">Bright and Colorful</option>
+                        <option value="minimal">Minimal (Black & White)</option>
+                        <option value="custom">Let AI choose</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Generate Website</button>
+            </form>
+        </section>
+        
+        <section class="preview-section">
+            <h2>Your Website Preview</h2>
+            <div class="preview-placeholder" id="websitePreview">
+                <p>Your AI-generated website will appear here after submission</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2023 AI Website Generator | Powered by Artificial Intelligence</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.getElementById('websiteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const websiteType = document.getElementById('websiteType').value;
+            const companyName = document.getElementById('companyName').value;
+            const websitePurpose = document.getElementById('websitePurpose').value;
+            const colorScheme = document.getElementById('colorScheme').value;
+            
+            // In a real implementation, you would send this data to your AI backend
+            // For this demo, we'll just display a message
+            const preview = document.getElementById('websitePreview');
+            preview.innerHTML = `
+                <div>
+                    <h3>Generating website for: ${companyName}</h3>
+                    <p><strong>Type:</strong> ${websiteType}</p>
+                    <p><strong>Purpose:</strong> ${websitePurpose}</p>
+                    <p><strong>Color Scheme:</strong> ${colorScheme}</p>
+                    <p>In a real implementation, your AI would now generate the website code which would appear here or be available for download.</p>
+                </div>
+            `;
+            
+            // Scroll to preview
+            preview.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
